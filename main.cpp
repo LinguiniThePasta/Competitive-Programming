@@ -12,35 +12,59 @@ using namespace std;
 #define s second
 
 int main() {
-    //freopen("pairup.in", "r", stdin);
-    //freopen("pairup.out", "w", stdout);
-    int N, X;
-    cin >> N >> X;
+    freopen("diamond.in", "r", stdin);
+    freopen("diamond.out", "w", stdout);
+    int N, K;
+    cin >> N >> K;
 
     vector<int> a(N);
-
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i<N; i++) {
         cin >> a[i];
     }
 
-    int l = 0;
-    int r = 0;
-    int subSum = 0;
-    int count = 0;
-    while (r <= N) {
-        if (subSum == X) {
-            count++;
-        }
-        if (subSum < X) {
-            subSum += a[r];
+    sort(a.begin(), a.end());
+
+    int l, r;
+    l = 0;
+    r = 0;
+
+    int maxNumOne = 0;
+    while (r < N) {
+        if (abs(a[r] - a[l]) <= K) {
+            int numOne = r - l + 1;
+            maxNumOne = max(numOne, maxNumOne);
             r++;
         } else {
-            subSum -= a[l];
             l++;
         }
-
     }
 
-    cout << count << endl;
+    for (int i = 0; i < N - (maxNumOne-1); i++) {
+        if (a[i+maxNumOne-1] - a[i] <= K) {
+            a.erase(a.begin() + i, a.begin() + i + maxNumOne);
+            break;
+        }
+    }
+
+    /*
+    for (int i = 0; i < a.size(); i++) {
+        cout << a[i] << endl;
+    }
+    */
+    l = 0;
+    r = 0;
+
+    int maxNumTwo = 0;
+    while (r < a.size()) {
+        if (abs(a[r] - a[l]) <= K) {
+            int numTwo = r - l + 1;
+            maxNumTwo = max(numTwo, maxNumTwo);
+            r++;
+        } else {
+            l++;
+        }
+    }
+
+    cout << maxNumOne + maxNumTwo << endl;
 }
 
