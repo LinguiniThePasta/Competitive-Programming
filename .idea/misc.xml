@@ -5,7 +5,6 @@
     <excludeRoots>
       <file path="$PROJECT_DIR$/Bronze" />
       <file path="$PROJECT_DIR$/Gold" />
-      <file path="$PROJECT_DIR$/Silver" />
     </excludeRoots>
   </component>
 </project>
