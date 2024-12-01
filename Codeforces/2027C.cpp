@@ -6,7 +6,6 @@
 
 using namespace std;
 int n, i;
-pair<double, double> island[1005];
 
 int solve() {
 
