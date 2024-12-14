@@ -6,7 +6,7 @@
 
 #define ll long long
 using namespace std;
-int n, i;
+
 
 int solve() {
 
@@ -14,9 +14,12 @@ int solve() {
 
 
 int main() {
-    int t;
-    cin >> t;
+    int n, m, k;
+    cin >> n >> m >> k;
 
+    vector <int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
 
-    return 0;
 }

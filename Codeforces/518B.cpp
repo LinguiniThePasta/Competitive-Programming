@@ -6,17 +6,12 @@
 
 #define ll long long
 using namespace std;
-int n, i;
+
 
 int solve() {
-
 }
 
 
 int main() {
-    int t;
-    cin >> t;
 
-
-    return 0;
 }
